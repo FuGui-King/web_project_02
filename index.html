@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <h1>我是你爸爸</h1>
     <body class="layui-layout-body">
         <div class="layui-layout layui-layout-admin">
             <div class="layui-header">
@@ -21,22 +20,28 @@
                 <!-- 头部区域（可配合layui已有的水平导航） -->
                 <ul class="layui-nav layui-layout-right">
                     <li class="layui-nav-item">
-                        <a href="javascript:;">
-                            <img src="/assets/images/dlam.jpg" class="layui-nav-img">
+                        <a href="javascript:;" class="userInfo">
+                            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                            <span class="text-avatar">彦</span>
                             个人中心
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">基本资料</a></dd>
-                            <dd><a href="javascript:;">更换头像</a></dd>
-                            <dd><a href="javascript:;">重置密码</a></dd>
+                            <dd><a href="/USER/user_info.html" target="fm">基本资料</a></dd>
+                            <dd><a href="/USER/user_avatar.html" target="fm">更换头像</a></dd>
+                            <dd><a href="/USER/user_pwd.html" target="fm">重置密码</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href=""><span class="iconfont icon-tuichu"></span>退出</a></li>
+                    <li class="layui-nav-item"><a href="" id="btnLogout"><span class="iconfont icon-tuichu" ></span>退出</a></li>
                 </ul>
             </div>
 
             <div class="layui-side layui-bg-black">
                 <div class="layui-side-scroll">
+                    <div class="userinfo">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        <span class="text-avatar">祖</span>
+                        <span id="welcome">雷猴啊 弟弟</span>
+                    </div>
                     <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                     <ul class="layui-nav layui-nav-tree" lay-shrink="all">
                         <li class="layui-nav-item layui-this">
@@ -53,9 +58,9 @@
                         <li class="layui-nav-item">
                             <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;"><i class="layui-icon layui-icon-user"></i>基本资料</a></dd>
-                                <dd><a href="javascript:;"><i class="layui-icon layui-icon-picture"></i>更换头像</a></dd>
-                                <dd><a href="javascript:;"><i class="layui-icon layui-icon-password"></i>重置密码</a></dd>
+                                <dd><a href="/USER/user_info.html" target="fm"><i class="layui-icon layui-icon-user"></i>基本资料</a></dd>
+                                <dd><a href="/USER/user_avatar.html" target="fm"><i class="layui-icon layui-icon-picture"></i>更换头像</a></dd>
+                                <dd><a href="/USER/user_pwd.html" target="fm"><i class="layui-icon layui-icon-password"></i>重置密码</a></dd>
                             </dl>
                         </li>
                     </ul>
@@ -71,9 +76,10 @@
             </div>
         </div>
         <script src="/assets/lib/layui/layui.all.js"></script>
-
+        <script src="/assets/lib/jquery.js"></script>
+        <script src="/assets/js/baseAPI.js"></script>
+        <script src="/assets/js/index.js"></script>
     </body>
-    <h3>我才是你爸爸</h3>
 </body>
 
 </html>

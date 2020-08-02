@@ -1,11 +1,14 @@
 $(function() {
   // 调用 getUserInfo 获取用户基本信息
+ 
   getUserInfo()
 
   var layer = layui.layer
 
   // 点击按钮，实现退出功能
-  $('#btnLogout').on('click', function() {
+  $('#btnLogout').on('click', function(e) {
+    e.preventDefault()
+    // console.log(1)
     // 提示用户是否确认退出
     layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function(index) {
       //do something
@@ -31,19 +34,16 @@ function getUserInfo() {
       }
       // 调用 renderAvatar 渲染用户的头像
       renderAvatar(res.data)
+    },
+    complete: function(res) {
+      // console.log(res.responseJSON)
+      if(res.responseJSON.status !== 1 && res.responseJSON.message === '身份认证失败！') {
+        // 1. 强制清空 token
+        localStorage.removeItem('token')
+        // 2. 强制跳转到登录页面
+        location.href = '/login.html'
+      }
     }
-    // 不论成功还是失败，最终都会调用 complete 回调函数
-    // complete: function(res) {
-    //   // console.log('执行了 complete 回调：')
-    //   // console.log(res)
-    //   // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
-    //   if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-    //     // 1. 强制清空 token
-    //     localStorage.removeItem('token')
-    //     // 2. 强制跳转到登录页面
-    //     location.href = '/login.html'
-    //   }
-    // }
   })
 }
 
